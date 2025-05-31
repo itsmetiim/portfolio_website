@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tim Riedel | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+<body>
+    
+    <div class="capsule" id="capsule">
+    
+      <img src="images/profile.jpeg" alt="Tim" class="avatar" onclick="toggleCapsule()"/>
+      
+      <!-- Textblock (initial versteckt) -->
+      <div class="text-block hidden" id="text-block">
+        <p class="hello">Hello, I'm</p>
+        <p class="name">Tim</p>
+      </div>
+      
+      <button class="text-button" onclick="handleTextButtonClick()">
+        <img id="text-button-icon" src="images/plus.svg" alt="plus" class="text-button-icon" />
+      </button>
+      
+      <!-- Knopf, (initial versteckt) -->
+      <button class="projects-button" onclick=#>
+          <img src="images/ellipsis.svg" alt="ellipsis" class="projects-button-icon" />
+      </button>
+      
+      <div class="long-text hidden" id="long-text" onclick="handleTextButtonClick()">
+          Over <span class="highlight">4 years</span> ago, I started my development journey. Since then, I've acquired skills in <span class="highlight">game</span>, <span class="highlight">web</span>, and primarily <span class="highlight">app</span> development. I'm all about presentation and crafting experiences that spark dopamine at first sight. A strong online presence makes businesses more <span class="highlight">trustworthy</span>, more <span class="highlight">reliable</span> — and gives customers the final push to click <span class="highlight">"buy."</span>
+      </div>
+      
+    </div>
+    
+</body>
+</html>
+
+<script>
+  let expanded = false;
+  let subToggled = false;
+
+  function toggleCapsule() {
+    expanded = !expanded;
+
+    const capsule = document.getElementById("capsule");
+    const icon = document.getElementById("text-button-icon");
+
+    if (expanded) {
+      capsule.classList.add("expanded");
+      icon.src = "images/waveform.svg";
+    } else {
+      capsule.classList.remove("expanded");
+      capsule.classList.remove("sub-open"); // sicherheitshalber auch sub zurücksetzen
+      icon.src = "images/plus.svg";
+      subToggled = false;
+    }
+  }
+
+  function handleTextButtonClick() {
+    const capsule = document.getElementById("capsule");
+
+    if (capsule.classList.contains("expanded")) {
+      toggleSubAction();
+    } else {
+      toggleCapsule();
+    }
+  }
+
+  function toggleSubAction() {
+    subToggled = !subToggled;
+    const capsule = document.getElementById("capsule");
+
+    if (subToggled) {
+      capsule.classList.add("sub-open");
+    } else {
+      capsule.classList.remove("sub-open");
+    }
+  }
+</script>
+

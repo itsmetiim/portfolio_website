@@ -1,0 +1,214 @@
+/* Zentrierung */
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f5f5;
+  font-family: 'Inter';font-size: 22px;
+}
+
+/* Capsule-Container */
+.capsule {
+    display: flex;
+    align-items: center;
+    background: black;
+    border-radius: 999px;
+    gap: 0.2rem;
+    padding: 0.3rem 0.3rem;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+/* Profilbild */
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  object-fit: cover;
+}
+
+
+
+.capsule.expanded .avatar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 47px;
+    height: 47px;
+    transition: all 0.3s ease;
+    gap: 0.4rem;
+    padding: 0.3rem 0.3rem;
+}
+
+/* Kleiner Button */
+.text-button {
+  background: #00c853; /* z. B. Grün */
+  border: none;
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.text-button-icon {
+  width: 12px;
+  height: 12px;
+}
+
+.capsule.expanded .text-button-icon {
+    width: 18;
+    height: 18;
+}
+
+.capsule.expanded .text-button {
+    background: #f76e00; /* z. B. Grün */
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Text Block - Hey, Im Tim */
+
+.text-block {
+  opacity: 0;
+  max-width: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  color: white;
+  height: 0px;
+}
+
+.capsule.expanded .text-block {
+  opacity: 1;
+  max-width: 200px;
+  margin: 0 0.6rem;
+  height: auto;
+  display: flex;
+  transition: all 0.3s ease;
+  padding-right: 3rem; /* z. B. 16px */
+}
+
+.text-block .hello {
+  font-size: 0.7rem;
+  opacity: 0.6;
+  margin: 0;
+}
+
+.text-block .name {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Project (ellipsis button )*/
+
+.projects-button {
+  height: 0;
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+  background: #0f8bef;
+  border: none;
+  color: white;
+  border-radius: 999px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 10;
+}
+
+.projects-button-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.capsule.expanded .projects-button {
+    opacity: 1;
+    background: #0f8bef;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    margin-left: 5px;
+    margin-right: 5px;
+    transition: all 0.3s ease;
+}
+
+/* long Text */
+
+.capsule.sub-open .avatar {
+    display: none;
+    transition: all 0.3s ease
+}
+
+.capsule.sub-open .text-button {
+    display: none; 
+}
+
+.capsule.sub-open .text-block {
+    display: none;
+    transition: all 0.3s ease
+}
+
+.capsule.sub-open .projects-button {
+    display: none; 
+}
+
+/* (eigendlicher text) */
+.long-text {
+    display: none
+}
+
+.capsule.expanded .long-text {
+    display: flex;
+    opacity: 0;
+  height: 0;
+  width: 0;
+  color: white;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  transition: all 0.4s ease;
+}
+
+/* Nur sichtbar bei sub-open */
+.capsule.sub-open .long-text {
+  color: rgba(255, 255, 255, 0.5);
+  display: block;
+  opacity: 1;
+  max-height: 200px;
+  min-height: 100px;
+  height: auto;
+  width: 400px;
+  text-align: left;
+  margin: 1rem;
+  transition: all 0.3s ease
+}
+
+.capsule.sub-open {
+    border-radius: 30px;
+    transition: all 0.2s ease
+}
+
+.highlight {
+  color: white;
+  opacity: 1;
+}
